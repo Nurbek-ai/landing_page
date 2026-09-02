@@ -15,6 +15,7 @@
             --dark: #12151C; 
             --gold: #CBA461; 
             --text-light: #5A5E6B;
+            --glass-bg: rgba(255, 255, 255, 0.7);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
@@ -54,8 +55,11 @@
         
         /* Shisha Effektli Badgelar (Endi rasm ustida to'liq muallaq turadi) */
         .glass-badge { position: absolute; background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.8); padding: 15px 25px; border-radius: 15px; display: flex; align-items: center; gap: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); z-index: 3;}
-        .badge-1 { top: 25%; left: -50px; animation: float 6s ease-in-out infinite; }
-        .badge-2 { bottom: 20%; right: -30px; animation: float 5s ease-in-out infinite alternate; }
+        
+        /* Joylashuvlar o'zgartirildi (Yuzga halal bermasligi uchun) */
+        .badge-1 { top: 50%; left: -60px; animation: float 6s ease-in-out infinite; }
+        .badge-2 { bottom: 15%; right: -30px; animation: float 5s ease-in-out infinite alternate; }
+        
         .glass-badge i { background: var(--dark); color: var(--gold); padding: 10px; border-radius: 50%; font-size: 20px; }
         .glass-badge h4 { font-family: 'Inter', sans-serif; font-size: 15px; margin-bottom: 3px; }
         .glass-badge p { font-size: 11px; color: var(--dark); opacity: 0.8; font-weight: 600;}
@@ -97,7 +101,7 @@
 
         /* ABOUT QISMI */
         .about-section { display: flex; align-items: center; background: var(--dark); color: #fff; position: relative; min-height: 600px;}
-        /* Qimmatbaho huquqiy fon (Sud bolg'asi / kutubxona foni) */
+        /* O'ZGARTIRILGAN YURIDIK FON (Adliya ramzlari) */
         .about-img { width: 50%; height: 100%; position: absolute; left: 0; top: 0; background: url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=2000&auto=format&fit=crop') center/cover; }
         .about-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, transparent, var(--dark) 95%); }
         
@@ -139,8 +143,9 @@
             .hero-stats { justify-content: center; }
             .hero-image-wrapper { width: 100%; max-width: 400px; height: 500px; }
             .glass-badge { transform: scale(0.8); }
-            .badge-1 { left: -10px; }
-            .badge-2 { right: -10px; }
+            /* Rasm ustidagi badge'lar mobilda ham halal bermaydigan qilib tuzatildi */
+            .badge-1 { top: 70%; left: 0px; }
+            .badge-2 { bottom: 10%; right: 0px; }
             .services-grid { grid-template-columns: 1fr; }
             .about-section { flex-direction: column; }
             .about-img { position: relative; width: 100%; height: 300px; }
@@ -184,7 +189,7 @@
             
             <div class="hero-stats">
                 <div class="stat-item">
-                    <h3>100+</h3> <!-- O'ZGARTIRILDI -->
+                    <h3>100+</h3> 
                     <p>Muvaffaqiyatli ishlar</p>
                 </div>
                 <div class="stat-item">
@@ -200,9 +205,8 @@
             <a href="https://t.me/huquqdabot" class="btn-large" target="_blank">Xizmatlardan foydalanish <i class="ri-arrow-right-line"></i></a>
         </div>
 
-        <!-- O'ZGARTIRILGAN HERO RASM BLOKI -->
         <div class="hero-image-wrapper" data-aos="zoom-in" data-aos-duration="1200">
-            <!-- Shisha effektlari (Muallaq turadi) -->
+            <!-- Shisha effektlari (Muallaq turadi, Yuzini yopmaydi) -->
             <div class="glass-badge badge-1">
                 <i class="ri-briefcase-4-line"></i>
                 <div>
@@ -220,7 +224,7 @@
             
             <!-- Advokatning rasmi (Arch ichida kesilgan) -->
             <div class="hero-arch">
-                <img src="advokat.jpg" alt="Advokat Shohruh Jo'rayev" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000&auto=format&fit=crop'">
+                <img src="advokat.jpg" alt="Advokat Shohruh Jo'rayev" onerror="this.src='https://placehold.co/450x600/CBA461/12151C?text=Surat'">
             </div>
         </div>
     </section>
@@ -299,15 +303,15 @@
 
     <!-- BIZ HAQIMIZDA (ABOUT) -->
     <section class="about-section" id="about">
-        <!-- Rasm Sud bolg'asiga o'zgardi -->
+        <!-- O'ZGARTIRILGAN YURIDIK FON (Adliya ramzlari qoldi, kitob olib tashlandi) -->
         <div class="about-img" data-aos="fade-right"></div>
         <div class="about-text" data-aos="fade-left">
             <h2>Haqiqat va Adolat — Bosh mezonimiz</h2>
-            <p><b>"Huquqda"</b> platformasi <i>"YAN LEGAL FIRM"</i> MChJ va <i>"DJURAEV AND PARTNERS"</i> advokatlik firmasining mualliflik IT-yuridik loyihasi hisoblanadi.</p>
+            <p><b>"Huquqda"</b> platformasi <i>"YAN LEGAL FIRM"</i> MChJ advokatlik firmasining mualliflik IT-yuridik loyihasi hisoblanadi.</p>
             <p>Biz nafaqat hujjat tayyorlaymiz, balki insonlar taqdiri yechimida ijtimoiy ko'makchi vazifasini ham bajaramiz. Bizda narxlar adolatli, yondashuv esa professionallikka asoslanadi.</p>
             
             <div class="advokat-profile">
-                <!-- Advokat profilingiz yuzdan aniq ko'rinadi -->
+                <!-- Advokat profil rasmi -->
                 <img src="advokat.jpg" alt="Shohruh Jo'rayev" onerror="this.src='https://placehold.co/100x100/CBA461/12151C?text=Yurist'">
                 <div>
                     <h4>Shohruh Jo'rayev</h4>
