@@ -102,64 +102,145 @@
         /* ABOUT QISMI */
         .about-section { display: flex; align-items: center; background: var(--dark); color: #fff; position: relative; min-height: 600px;}
         
-        /* BIZ HAQIMIZDA - FON VA SARIQ SMARTFON YASASH QISMI */
+        /* ========================================================
+           REALISTIK 3D SMARTFON YASASH QISMI (YANGILANDI) 
+           ======================================================== */
         .about-img { 
             width: 50%; 
             height: 100%; 
             position: absolute; 
             left: 0; top: 0; 
-            background: linear-gradient(100deg, #DDA428 0%, #765715 45%, var(--dark) 100%); 
+            background: linear-gradient(110deg, #DDA428 0%, #876113 40%, var(--dark) 100%); 
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            perspective: 1200px; /* Real 3D istiqbol */
         }
 
-        /* 3D Sariq Smartfon */
+        /* Endi u A (havola) tegi orqali yasaladi - Bosganda botga o'tadi */
         .css-phone {
-            width: 260px;
-            height: 540px;
-            background: #EBB637;
-            border-radius: 40px;
-            padding: 12px;
-            transform: perspective(1000px) rotateY(25deg) rotateX(10deg) rotateZ(-2deg);
-            box-shadow: -25px 25px 40px rgba(0,0,0,0.7), 
-                        inset -5px -5px 15px rgba(255, 255, 255, 0.4), 
-                        inset 5px 5px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.5s ease;
+            display: block; /* A tegi blokka aylanadi */
+            text-decoration: none;
+            width: 270px;
+            height: 550px;
+            background: #0d0d0d;
+            border-radius: 48px;
+            padding: 12px; /* Ekran qalinligi (Bezel) */
+            
+            /* Yon tomon va qalinlik 3D soyalari (Siz yuborgan rasmdek metall effekt) */
+            box-shadow: 
+                -1px 1px 0 #57410c,
+                -2px 2px 0 #57410c,
+                -3px 3px 0 #4a380b,
+                -4px 4px 0 #4a380b,
+                -5px 5px 0 #3d2e08,
+                -6px 6px 0 #3d2e08,
+                -7px 7px 0 #312406,
+                -8px 8px 0 #312406,
+                -9px 9px 0 #241a04,
+                -10px 10px 0 #241a04,
+                -11px 11px 0 #181102,
+                -12px 12px 0 #181102,
+                -13px 13px 0 #000,
+                /* Fon soyasi */
+                -30px 30px 40px rgba(0,0,0,0.8),
+                /* Ustki yaltiroq chegara */
+                inset 2px -2px 10px rgba(255, 255, 255, 0.15);
+                
+            /* Xuddi rasmingizdagi kabi turishi uchun aylantirish burchagi */
+            transform: rotateX(15deg) rotateY(25deg) rotateZ(-3deg);
+            transform-style: preserve-3d;
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
             position: relative;
             z-index: 5;
+            cursor: pointer; /* Mishka borganini bilintiradi */
         }
         
+        /* Sichqoncha borganda realistik sakrash effekti */
         .css-phone:hover {
-            transform: perspective(1000px) rotateY(15deg) rotateX(5deg) translateY(-10px);
+            transform: rotateX(10deg) rotateY(18deg) rotateZ(-1deg) translateY(-10px);
+            box-shadow: 
+                -1px 1px 0 #57410c,
+                -2px 2px 0 #57410c,
+                -3px 3px 0 #4a380b,
+                -4px 4px 0 #4a380b,
+                -5px 5px 0 #3d2e08,
+                -6px 6px 0 #3d2e08,
+                -45px 45px 60px rgba(0,0,0,0.7), /* Hoverda soya kengayadi */
+                inset 2px -2px 10px rgba(255, 255, 255, 0.25);
         }
 
-        /* Ovoz va O'chirish tugmalari */
-        .css-phone::before { content: ''; position: absolute; left: -4px; top: 120px; width: 4px; height: 50px; background: #c6941f; border-radius: 5px 0 0 5px; }
-        .css-phone::after { content: ''; position: absolute; right: -4px; top: 150px; width: 4px; height: 70px; background: #c6941f; border-radius: 0 5px 5px 0; }
+        /* Yon ovoz va blokirovka tugmalari - Tillarang soyaga moslashdi */
+        .css-phone::before { 
+            content: ''; position: absolute; left: -4px; top: 120px; 
+            width: 4px; height: 50px; background: #876113; border-radius: 5px 0 0 5px; 
+            box-shadow: 0 70px 0 #876113; /* Ikkita ovoz tugmasi bittada yasaldi */
+            transform: translateZ(-5px); /* Hajmning orqasiga yashirish */
+        }
+        .css-phone::after { 
+            content: ''; position: absolute; right: -3px; top: 140px; 
+            width: 3px; height: 70px; background: #222; border-radius: 0 5px 5px 0; 
+        }
 
-        /* Telefon ekrani */
+        /* Telefon ichki ekrani */
         .phone-screen {
             width: 100%; 
             height: 100%; 
-            background: #12151C; 
-            border-radius: 30px; 
+            background: #000; 
+            border-radius: 36px; /* Ekran burchagi */
             overflow: hidden; 
             position: relative;
-            border: 2px solid #000;
-        }
-        
-        .phone-notch {
-            position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-            width: 100px; height: 25px; background: #000;
-            border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;
-            z-index: 10;
+            box-shadow: inset 0 0 8px rgba(0,0,0,1);
         }
 
+        /* Dynamic Island - Zamonaviy teshik */
+        .phone-island {
+            position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
+            width: 95px; height: 28px; background: #000;
+            border-radius: 20px; z-index: 30;
+            box-shadow: 0 0 5px rgba(0,0,0,0.4);
+            display: flex; align-items: center; justify-content: flex-end;
+            padding-right: 8px;
+        }
+        /* Kamerasi */
+        .phone-island::after {
+            content: ''; width: 12px; height: 12px;
+            background: #0a0a0a; border-radius: 50%;
+            border: 1px solid #222;
+            box-shadow: inset 0 0 3px #3b2c7e; /* Kamara yorug'ligi */
+        }
+
+        /* Ekranga tushayotgan 3D shisha yorug'ligi (Realizm qismi) */
+        .phone-glare {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 36px;
+            background: linear-gradient(110deg, 
+                rgba(255,255,255,0.4) 0%, 
+                rgba(255,255,255,0.05) 30%, 
+                transparent 35%);
+            pointer-events: none; /* Sichqoncha halaqit bermasligi uchun */
+            z-index: 20;
+            transition: all 0.5s ease;
+        }
+        
+        .css-phone:hover .phone-glare {
+            background: linear-gradient(110deg, 
+                rgba(255,255,255,0.5) 0%, 
+                rgba(255,255,255,0.1) 40%, 
+                transparent 45%);
+        }
+
+        /* Rasm joylashuvi */
         .phone-screen img {
             width: 100%; height: 100%; object-fit: cover;
             object-position: top; 
+            transition: 0.5s ease;
+        }
+        
+        /* Sichqoncha olib borilganda ekran salgina qimirllaydi */
+        .css-phone:hover .phone-screen img {
+            transform: scale(1.02);
         }
         /* YASASH QISMI TUGADI */
         
@@ -208,9 +289,11 @@
             
             /* ABOUT MOSLASHUV YASALGAN SMARTFON UCHUN*/
             .about-section { flex-direction: column; }
-            .about-img { position: relative; height: 550px; width: 100%; background: linear-gradient(to bottom, #DDA428 0%, var(--dark) 100%); }
-            .css-phone { transform: perspective(1000px) rotateY(0) rotateX(0) scale(0.9); }
-            .css-phone:hover { transform: scale(0.95) translateY(-5px); }
+            .about-img { position: relative; height: 650px; width: 100%; background: linear-gradient(to bottom, #DDA428 0%, var(--dark) 100%); }
+            
+            /* Mobilda ham realizmni saqlab turamiz, qalinligini bildirish uchun 15 gradus ushlab turamiz */
+            .css-phone { transform: rotateX(15deg) rotateY(15deg) rotateZ(0deg) scale(0.85); margin: 0 auto; }
+            .css-phone:hover { transform: rotateX(10deg) rotateY(15deg) translateY(-5px) scale(0.87); }
             .about-text { width: 100%; margin-left: 0; padding: 40px 30px; }
             /* SMARTFON MOSLASHUVI TUGADI */
             
@@ -367,15 +450,23 @@
     <!-- BIZ HAQIMIZDA (ABOUT) -->
     <section class="about-section" id="about">
         
-        <!-- Yaratilgan 3D Sariq Smartfon foni -->
+        <!-- Yaratilgan Realistik 3D Smartfon Foni -->
         <div class="about-img" data-aos="fade-right">
-            <div class="css-phone">
-                <div class="phone-notch"></div>
+            
+            <!-- SMARTFON BUTUNLAY TUGMA/LINK (BOSILGANDA BOTGA O'TADI) -->
+            <a href="https://t.me/huquqdabot" target="_blank" class="css-phone">
+                <!-- Zamonaviy yuzadagi datchik, va pleyklar -->
+                <div class="phone-glare"></div>
+                
                 <div class="phone-screen">
+                    <!-- Dynamic Island Kamera joyi -->
+                    <div class="phone-island"></div>
+                    
                     <!-- Shu yerga botning skrinshot rasmini qo'yasiz -->
                     <img src="bot-skrinshot.jpg" alt="Telegram Bot" onerror="this.src='https://images.unsplash.com/photo-1614680376573-3e4e1ef4101e?q=80&w=600&auto=format&fit=crop'">
                 </div>
-            </div>
+            </a>
+            
         </div>
         
         <div class="about-text" data-aos="fade-left">
